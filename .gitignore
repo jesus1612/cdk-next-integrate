@@ -2,23 +2,24 @@
 
 # dependencies
 /node_modules
-../aws/node_modules
-/.pnp
-.pnp.js
+/aws/node_modules
+/myawesonesite/node_modules
+myawesonesite/.pnp
+myawesonesite/.pnp.js
 
 # testing
-/coverage
+/myawesonesite/coverage
 
 # next.js
-/.next/
-/out/
+/myawesonesite/.next/
+/myawesonesite/out/
 
 # production
-/build
+/myawesonesite/build
 
 # misc
-.DS_Store
-*.pem
+/myawesonesite/.DS_Store
+/myawesonesite/*.pem
 
 # debug
 npm-debug.log*
@@ -26,7 +27,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+/myawesonesite/.env*.local
 
 # vercel
 .vercel
