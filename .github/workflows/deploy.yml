@@ -2,8 +2,6 @@ name: Deploy With S3
 
 on:
   push:
-    paths:
-        - '../../myawesonesite/**'
     branches:
       - main
 
@@ -15,6 +13,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 18
+    - run: cd ../../myawesonesite
     - run: npm ci
     - run: npm run build
     - uses: aws-actions/configure-aws-credentials@v2
