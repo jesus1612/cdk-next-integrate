@@ -3,7 +3,7 @@ name: Deploy With S3
 on:
   push:
     paths:
-        - '../../aws/**'
+        - '../../myawesonesite/**'
     branches:
       - main
 
