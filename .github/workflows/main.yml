@@ -26,6 +26,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Configurar variables de entorno de AWS
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+          STACK_FILE_PATH: bin/aws.js
+        run: |
+          echo "Configurando variables de entorno de AWS"
+
       - name: Instalar dependencias npm
         run: 'npm install'
       - name: Install AWS CDK
@@ -37,10 +46,6 @@ jobs:
       #     sudo ./aws/install
       #     aws --version
       - name: Desplegar AWS CDK
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          STACK_FILE_PATH: bin/aws.js
         run: |
           echo $STACK_FILE_PATH
           npx cdk deploy --app 'node $STACK_FILE_PATH' --require-approval never

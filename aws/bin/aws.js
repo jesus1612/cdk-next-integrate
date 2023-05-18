@@ -22,5 +22,3 @@ class AwsStack extends Stack {
 const app = new cdk.App();
 
 new AwsStack(app, 'AwsStack');
-
-app.synth();
