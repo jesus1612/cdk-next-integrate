@@ -2,7 +2,7 @@
   "name": "aws",
   "version": "0.1.0",
   "bin": {
-    "aws": "bin/aws.js"
+    "aws": "./bin/aws.js"
   },
   "scripts": {
     "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
