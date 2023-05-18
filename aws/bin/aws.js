@@ -11,9 +11,13 @@ class AwsStack extends Stack {
    */
   constructor(scope, id, props) {
     super(scope, id, props);
+    // Configura la cuenta de AWS
+    const account = '093047447013';
+    const region = 'us-east-1';
 
     new s3.Bucket(this, 'bucket-next', {
-      versioned: false
+      versioned: false, 
+      bucketName: `my-bucket-${account}-${region}`
     });
   }
 }
