@@ -26,6 +26,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Instalar dependencias npm
+          run: 'npm install'
       - name: Install AWS CDK
         run: 'npm ci'
       # - name: Instalar AWS CLI
