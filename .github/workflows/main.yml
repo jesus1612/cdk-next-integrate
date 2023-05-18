@@ -46,8 +46,6 @@ jobs:
       #     unzip awscliv2.zip
       #     sudo ./aws/install
       #     aws --version
-      - name: Diff
-        run:  'cdk diff --fail'
       - name: Desplegar AWS CDK
         run: |
           echo $STACK_FILE_PATH
