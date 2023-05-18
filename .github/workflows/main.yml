@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
       # Mobile folder working directory.
-        working-directory: Aws
+        working-directory: aws
     steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
         id: filter
         with:
           filters: |
-            Aws:
+            aws:
               - '../../aws/**'
       - name: Instalar dependencias de Node.js
         uses: actions/setup-node@v3
