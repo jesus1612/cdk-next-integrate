@@ -1,0 +1,35 @@
+name: Despliegue de AWS CDK y Next.js
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_cdk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v2
+
+      - name: Instalar dependencias de Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Instalar AWS CLI
+        run: |
+          curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+          aws --version
+
+      - name: Desplegar AWS CDK
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          cd ../../aws
+          npm ci
+          npx cdk deploy --app 'npx ts-node bin/stack.ts' --require-approval never
