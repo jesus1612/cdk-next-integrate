@@ -8,10 +8,21 @@ on:
 jobs:
   deploy_cdk:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+      # Mobile folder working directory.
+        working-directory: aws
 
     steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            aws:
+              - '../../aws/**'
 
       - name: Instalar dependencias de Node.js
         uses: actions/setup-node@v3
@@ -29,6 +40,5 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          cd ../../../aws/
           npm ci
           npx cdk deploy --app 'npx ts-node bin/stack.ts' --require-approval never
