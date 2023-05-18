@@ -4,3 +4,5 @@ const { AwsStack } = require('../lib/aws-stack');
 
 const app = new cdk.App();
 new AwsStack(app, 'AwsStack');
+
+app.synth();
