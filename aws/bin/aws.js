@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const cdk, { Stack } = require('aws-cdk-lib');
+const cdk = require('aws-cdk-lib');
+const { Stack } = require('aws-cdk-lib');
 const s3 = require('aws-cdk-lib/aws-s3');
 
 class AwsStack extends Stack {
