@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      with:
       - name: Checkout del repositorio
       - uses: actions/checkout@v3
+
       - name: Instalar dependencias de Node.js
       - uses: actions/setup-node@v3
-        node-version: 18
+        with:
+          node-version: 18
       # - name: Instalar AWS CLI
       #   run: |
       #     curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
