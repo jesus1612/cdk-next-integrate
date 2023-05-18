@@ -12,7 +12,7 @@ class AwsStack extends Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
-    new s3.Bucket(this, 'MyFirstBucket', {
+    new s3.Bucket(this, 'bucket-next', {
       versioned: false
     });
   }
