@@ -12,8 +12,8 @@ class AwsStack extends Stack {
     super(scope, id, props);
 
 
-    const stackDirectory = path.dirname(Construct.of(this).stackName);
-    const stackFilePath = path.join(stackDirectory, 'bin', 'stack.js');
+    // const stackDirectory = path.dirname(Construct.of(this).stackName);
+    const stackFilePath = path.join('/', 'bin', 'stack.js');
 
     new s3.Bucket(this, 'MyFirstBucket', {
       versioned: false
